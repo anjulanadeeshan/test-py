@@ -1,5 +1,5 @@
 n = int(input())
 
-t = tuple(map(int, raw_input().split()))
+t = tuple(map(int, input().split()))
 
 print(hash(t))
