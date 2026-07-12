@@ -1,0 +1,32 @@
+def binary_search(arr, target) :
+    low = 0
+    high = len(arr)-1
+
+    while low <= high:
+        mid = (low+high) //2
+        if arr[mid] == target:
+            return mid
+        elif arr[mid] < target:
+            low = mid+1
+        else :
+            high = mid-1
+        
+    return low
+
+n = int(input())
+ranked = list(map(int, input().split()))
+
+m = int(input())
+player = list(map(int, input().split()))
+
+unique = sorted(set(ranked))
+
+for score in player:
+    pos = binary_search(unique,score)
+
+    if pos < len(unique) and unique[pos] == score:
+        rank = len(unique) - pos
+    else :
+        rank = len(unique)-pos+1
+    
+    print(rank)
